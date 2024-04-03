@@ -1,0 +1,6 @@
+uint8 PING_START=1
+uint8 PING_STOP=2
+
+uint8 ping
+---
+string action

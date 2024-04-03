@@ -1,0 +1,3 @@
+uint8[4] reset
+uint8 frequency
+float32[4] shunt_value

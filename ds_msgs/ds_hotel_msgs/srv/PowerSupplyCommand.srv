@@ -1,0 +1,18 @@
+float32 POWERSUPPLY_NODATA = -9999.99
+
+
+# Set the programmed voltage, in volts
+float32 prog_volts
+
+# Set the programmed current limit, in amps
+float32 prog_amps
+
+# Set the output enable flag
+bool output_enable
+
+# (possibly) lock out the front panel
+bool frontpanel_locked
+
+---
+
+bool success

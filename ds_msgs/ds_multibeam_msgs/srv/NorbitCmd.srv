@@ -1,0 +1,4 @@
+uint8 NORBIT_CMD_PWR_OFF=1
+uint8 NORBIT_CMD_PWR_ON=2
+uint8 command
+---

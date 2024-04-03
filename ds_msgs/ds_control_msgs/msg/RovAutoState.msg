@@ -1,0 +1,7 @@
+bool auto_xy_enabled
+bool auto_depth_enabled
+bool auto_heading_enabled
+
+bool auto_xy_available
+bool auto_depth_available
+bool auto_heading_available

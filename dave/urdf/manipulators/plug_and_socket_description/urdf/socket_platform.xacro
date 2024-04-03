@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="socket">
+
+  <xacro:include filename="$(find plug_and_socket_description)/urdf/m_to_f_socket.xacro"/>
+  <xacro:include filename="$(find plug_and_socket_description)/urdf/f_to_m_receptacle.xacro"/>
+
+  <link name="socket_platform_link">
+      <inertial name="socket_platform_inertial">
+        <mass value="500"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <inertia ixx="750" ixy="0" ixz="0"
+                 iyy="195" iyz="0" izz="750"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+      </inertial>
+      <visual name="socket_platform_visual">
+        <geometry>
+          <mesh filename="package://dave_object_models/models/electrical_panel/meshes/Underwater-Frame.dae" scale="1 1 1"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+      </visual>
+      <collision name="socket_platform_collision">
+        <geometry>
+          <mesh filename="package://dave_object_models/models/electrical_panel/meshes/COLLISION-Underwater-Frame.dae" scale="1 1 1"/>
+        </geometry>
+        <origin xyz="0 0 0" rpy="0 0 ${pi}"/>
+      </collision>
+  </link>
+
+  <!-- Generate the sockets & attach them to the platform link -->
+  <xacro:f_to_m_receptacle_macro
+    name="receptacle1" xyz="0 0 0"
+    plug_model_name="f_to_m_plug" plug_link_name="f_to_m_plug" roll_tolerance="0.3"
+    pitch_tolerance="0.1" yaw_tolerance="0.1"
+    mating_force="25" unmating_force="125"/>
+
+  <!-- Revolute joint gets accurately loaded into Gazebo -->
+  <joint name="receptacle1_joint" type="revolute">
+    <limit effort="1.0" lower="0.0" upper="0.0" velocity="0.0"/>
+    <origin xyz="-0.31 0.424 1.254" rpy="0 ${-pi/4} ${pi/2}"/>
+    <parent link="socket_platform_link"/>
+    <child link="receptacle1_link"/>
+  </joint>
+
+  <xacro:m_to_f_socket_macro
+    name="socket2" xyz="0 0 0"
+    plug_model_name="m_to_f_plug" plug_link_name="m_to_f_plug" roll_tolerance="0.3"
+    pitch_tolerance="0.3" yaw_tolerance="0.3"
+    mating_force="25" unmating_force="125"/>
+
+  <joint name="socket2_joint" type="revolute">
+    <limit effort="1.0" lower="0.0" upper="0.0" velocity="0.0"/>
+    <origin xyz="0.125 0.475 1.315" rpy="0 ${-pi/4} ${pi/2}"/>
+    <parent link="socket_platform_link"/>
+    <child link="socket2_link"/>
+  </joint>
+
+  <xacro:f_to_m_receptacle_macro
+    name="receptacle3" xyz="0 0 0"
+    plug_model_name="f_to_m_plug" plug_link_name="f_to_m_plug" roll_tolerance="0.3"
+    pitch_tolerance="0.1" yaw_tolerance="0.1"
+    mating_force="25" unmating_force="125"/>
+
+  <joint name="receptacle3_joint" type="revolute">
+    <limit effort="1.0" lower="0.0" upper="0.0" velocity="0.0"/>
+    <origin xyz="-0.98 0.475 1.245" rpy="0 ${-pi/4} ${pi/2}"/>
+    <parent link="socket_platform_link"/>
+    <child link="receptacle3_link"/>
+  </joint>
+
+</robot>

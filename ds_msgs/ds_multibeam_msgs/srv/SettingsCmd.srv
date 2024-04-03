@@ -1,0 +1,4 @@
+string setting_name
+int64 setting_value
+---
+string command_sent

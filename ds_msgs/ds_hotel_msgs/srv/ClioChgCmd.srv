@@ -1,0 +1,5 @@
+uint8 CHARGE_CMD_OFF=1
+uint8 CHARGE_CMD_CHARGE=2
+
+uint8 command
+---

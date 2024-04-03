@@ -1,0 +1,7 @@
+uint8 ABORT_CMD_ABORT=1
+uint8 ABORT_CMD_DONTABORT=2
+uint8 ABORT_CMD_ENABLE=3
+uint8 ABORT_CMD_DISABLE=4
+
+uint8 command
+---

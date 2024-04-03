@@ -1,0 +1,4 @@
+string PWR_DESTINATION
+string PWR_STATE_DESIRED
+---
+string action

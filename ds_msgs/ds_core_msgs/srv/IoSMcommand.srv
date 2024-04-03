@@ -1,0 +1,29 @@
+# Command constants
+
+uint8 IOSM_ADD_REGULAR     = 1
+uint8 IOSM_UPDATE_REGULAR  = 2
+uint8 IOSM_REMOVE_REGULAR  = 3
+
+uint8 IOSM_ADD_PREEMPT     = 4
+
+uint8 IOSM_ADD_SHUTDOWN    = 5
+uint8 IOSM_UPDATE_SHUTDOWN = 6
+uint8 IOSM_REMOVE_SHUTDOWN = 7
+
+# MUST be one of the above commands
+uint8 iosm_command
+
+# All of these commands are processed in sequence using the above
+# command code.  The command sequence is guaranteed to be added to
+# the relevant queue as one unit.  The return values are
+# given in the return vector
+IoCommand[] commands
+
+# To specify the ID
+
+---
+
+uint64 FAIL=0
+
+# Return codes.  0 for FAILURE, or the ID of the command successfully added / updated / removed
+uint64[] retval

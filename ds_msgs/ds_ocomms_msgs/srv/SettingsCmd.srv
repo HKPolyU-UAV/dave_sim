@@ -1,0 +1,4 @@
+string PARAM_DESTINATION
+string PARAM_PAYLOAD
+---
+string action

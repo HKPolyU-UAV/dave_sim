@@ -1,0 +1,17 @@
+int8 XR_FUNCTION_DCAM = 1
+int8 XR_FUNCTION_BURN = 2
+int8 xr_function
+
+# ALWAYS 1 or 2
+int8 xr_idx
+
+# DCam/wire number-- always 1 or 2
+int8 xr_subidx
+
+# 1 for on, 0 for off
+bool enable 
+
+---
+
+bool success
+string msg

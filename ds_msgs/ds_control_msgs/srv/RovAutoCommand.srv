@@ -1,0 +1,12 @@
+uint32 TURN_OFF=0
+uint32 TURN_ON=1
+uint32 NO_CHANGE=2
+
+uint32 enable_auto_xy
+uint32 enable_auto_depth
+uint32 enable_auto_heading
+
+---
+
+bool success
+string msg

@@ -1,0 +1,4 @@
+string PING_DESTINATION
+string PING_PAYLOAD
+---
+string action

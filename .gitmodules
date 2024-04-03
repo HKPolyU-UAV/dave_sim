@@ -1,0 +1,4 @@
+[submodule "bluerov2"]
+	path = bluerov2
+	url = https://github.com/HKPolyU-UAV/bluerov2.git
+	branch = main

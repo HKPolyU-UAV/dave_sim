@@ -1,0 +1,44 @@
+<package>
+  <name>sonar_rviz_plugin</name>
+  <version>0.10.1</version>
+  <description>
+     RViz plugin for sonar such as Imagenex 831l.
+  </description>
+  <maintainer email="srahman@email.sc.edu">Sharmin Rahman</maintainer>
+  <license>BSD</license>
+
+  <url>http://ros.org/wiki/sonar_rviz_plugin</url>
+  <author>Sharmin Rahman</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- For Custom msg, i.e. ProcessedRange, RangeRaw -->
+  <build_depend>message_generation</build_depend>
+  <build_depend>qtbase5-dev</build_depend>
+  <build_depend>rviz</build_depend>
+  <build_depend>imagenex831l</build_depend>
+  <build_depend>geometry_msgs</build_depend>
+  <build_depend>tf</build_depend> 
+  <build_depend>tf2</build_depend> 
+  <build_depend>tf2_ros</build_depend> 
+  <build_depend>tf2_sensor_msgs</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+
+  <run_depend>roscpp</run_depend>
+  <run_depend>message_runtime</run_depend>
+  <run_depend>geometry_msgs</run_depend>
+  <run_depend>tf</run_depend> 
+  <run_depend>tf2</run_depend> 
+  <run_depend>tf2_sensor_msgs</run_depend> 
+  <run_depend>tf2_ros</run_depend> 
+  <run_depend>libqt5-core</run_depend>
+  <run_depend>libqt5-gui</run_depend>
+  <run_depend>libqt5-widgets</run_depend>
+  <run_depend>rviz</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+
+  <export>
+      <rviz plugin="${prefix}/plugin_description.xml"/>
+  </export>
+</package>

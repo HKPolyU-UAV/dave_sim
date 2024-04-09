@@ -1,0 +1,14 @@
+<launch>
+
+	<!-- Arguments -->
+  <arg name="bagfile" default="/home/shanta/data/sonar/barbados2017__2017-01-03-22-43-52.bag"/>
+  <param name="/use_sim_time" value="true"/>
+
+  <!-- Play the bagfile -->
+  <node pkg="rosbag" type="play" name="rosbag" args="--clock -r .5 $(arg bagfile)" />
+
+  <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map sonar 100" />
+
+  <!--node pkg="rviz" name="rviz" type="rviz" respawn="true"/-->
+
+</launch>

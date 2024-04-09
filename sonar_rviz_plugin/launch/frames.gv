@@ -1,0 +1,7 @@
+digraph G {
+"map" -> "sonar"[label="Broadcaster: /link1_broadcaster\nAverage rate: 10.352 Hz\nMost recent transform: 1483501459.393 ( -0.024 sec old)\nBuffer length: 2.415 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1483501459.369"[ shape=plaintext ] ;
+ }->"map";
+}

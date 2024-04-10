@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="gui" default="true"/>
+  <arg name="paused" default="false"/>
+  <!--<arg name="world_name" default="$(find dave_worlds)/worlds/dave_ocean_waves.world"/>--> <!-- comment when dave_graded_seabed_replace.world -->
+  <arg name="namespace" default="caldus"/>
+  <arg name="velocity_control" default="true"/>
+  <arg name="joy_id" default="0"/>
+  <arg name="debug" default="false"/>
+  <arg name="verbose" default="false"/>
+  <arg name="x" default="25"/>
+  <arg name="y" default="0"/>
+  <arg name="z" default="-85"/>
+  <arg name="roll" default="0"/>
+  <arg name="pitch" default="0"/>
+  <arg name="yaw" default="-1.8"/>
+
+  <!-- for dave_graded_seabed_replace.world -->
+  <!--<arg name="x" default="0" />
+  <arg name="y" default="0" />
+  <arg name="z" default="-1" />
+  <arg name="pitch" default="0" />
+  <arg name="roll" default="0" />
+  <arg name="yaw" default="0" />-->
+
+  <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
+      <arg name="world_name" value="$(find dave_worlds)/worlds/dave_graded_seabed.world"/>
+      <arg name="paused" value="$(arg paused)"/>
+      <arg name="use_sim_time" value="true"/>
+      <arg name="gui" value="$(arg gui)"/>
+      <arg name="headless" value="false"/>
+      <arg name="debug" value="false"/>
+      <arg name="verbose" value="true"/>
+  </include>-->
+
+  <!-- use Gazebo's empty_world.launch with dave_ocean_waves.world -->
+  <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(arg world_name)"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="$(arg debug)"/>
+    <arg name="verbose" value="$(arg verbose)"/>
+  </include>-->
+
+  <!-- use Gazebo's subsea_bop_panel.launch with the ocean world -->
+  <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/subsea_bop_panel.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="true" />
+  </include>-->
+
+  <!-- use subsea_apriltag.launch with the ocean world -->
+  <!--<include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/subsea_apriltag.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="true" />
+  </include>-->
+
+  <!-- use subsea_ship.launch with the ocean world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="worlds/subsea_ship.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="$(arg gui)"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+    <arg name="verbose" value="true" />
+  </include>
+
+  <!-- use ned frame north east down -->
+  <include file="$(find uuv_assistants)/launch/publish_world_ned_frame.launch"/>
+
+  <!-- world models -->
+  <node name="publish_world_models"
+        pkg="uuv_assistants"
+        type="publish_world_models.py"
+        output="screen">
+    <rosparam subst_value="true">
+      meshes:
+          heightmap:
+              mesh: package://uuv_gazebo_worlds/models/sand_heightmap/meshes/heightmap.dae
+              model: sand_heightmap
+          seafloor:
+              plane: [2000, 2000, 0.1]
+              pose:
+                  position: [0, 0, -100]
+          north:
+              plane: [0.1, 2000, 100]
+              pose:
+                  position: [1000, 0, -50]
+          south:
+              plane: [0.1, 2000, 100]
+              pose:
+                  position: [-1000, 0, -50]
+          west:
+              plane: [2000, 0.1, 100]
+              pose:
+                  position: [0, -1000, -50]
+          east:
+              plane: [2000, 0.1, 100]
+              pose:
+                  position: [0, 1000, -50]
+    </rosparam>
+  </node>
+  
+  <!-- Load and spawn the model, starts the joint & state publishers, make the model move -->
+  <include file="$(find caldus_description)/launch/upload_caldus_whn_uuvsim_modified_xyb.launch"/>
+
+  <!--add svin2-->
+  <!--<include file="$(find okvis_ros)/launch/svin_stereorig_v2.launch">-->
+
+  <include file="$(find dave_nodes)/launch/joy_thrusterop.launch">
+    <arg name="joy_id" value="$(arg joy_id)"/>
+    <arg name="namespace" value="$(arg namespace)"/>
+  </include>
+  <node name="spawn_caldus" pkg="gazebo_ros" type="spawn_model"
+        respawn="false" output="screen"
+        args="-urdf -x $(arg x) -y $(arg y) -z $(arg z) -R $(arg roll) -P $(arg pitch) -Y $(arg yaw) -model $(arg namespace) -param /$(arg namespace)/caldus"/>
+
+  <!-- Robot state publisher subscribes to the custom joint state publisher -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" respawn="false">
+    <remap from="robot_description" to="/$(arg namespace)/caldus" />
+  </node>
+
+  <!-- twist_keyboard -->
+  <node name="twist_keyboard" pkg="teleop_twist_keyboard" type="teleop_twist_keyboard.py">
+  </node>
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+    <remap from="robot_description" to="/$(arg namespace)/caldus"/>
+  </node>
+
+  <!--<node name="dvl_state_and_gradient" pkg="dave_nodes" type="dvl_state_and_gradient_uuvsim.py">
+  </node>
+  <node name="plot_gradient" pkg="dave_nodes" type="dvl_gradient_plot.py">
+  </node>-->
+
+</launch>

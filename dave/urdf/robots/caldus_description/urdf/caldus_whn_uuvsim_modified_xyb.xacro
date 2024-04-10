@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<!-- 
+     All rights reserved.
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<robot name="caldus" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+  <xacro:arg name="debug" default="0"/>
+  <xacro:arg name="namespace" default="caldus"/>
+  <xacro:arg name="inertial_reference_frame" default="world"/>
+  <!-- set the caldus' original coordinates -->
+  <xacro:arg name="x" default="0"/>
+  <xacro:arg name="y" default="0"/>
+  <xacro:arg name="z" default="0"/>
+
+  <!-- Include the ROV file to create the robot -->
+  <xacro:include filename="$(find caldus_description)/urdf/caldus.xacro"/>
+  
+
+  <!-- Use the DVL macro to add the Nortek DVL1000-4000 DVL -->
+  <xacro:include filename="$(find teledyne_whn_uuvsim_description)/urdf/teledyne_whn.xacro"/>
+  <xacro:teledyne_whn_enu_macro namespace="$(arg namespace)" parent_link="$(arg namespace)/base_link">
+    <origin xyz="1 0 -0.95" rpy="0 ${0.5*pi} 0"/>
+  </xacro:teledyne_whn_enu_macro>
+
+  <!--Include the IMU file to create the IMU sensor-->
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/imu_snippets.xacro"/>
+  <xacro:default_imu namespace="$(arg namespace)" parent_link="$(arg namespace)/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_imu>
+  <!--OVER~modified on Mar 14 by XYB-->
+
+ <!-- Include the stereo camera file to create the camera sensor -->
+ <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/stereo_snippets.xacro"/>
+  <xacro:duo3d_camera namespace="$(arg namespace)" parent_link="$(arg namespace)/base_link">
+    <origin xyz="0.5 0 0.5" rpy="0 0 0"/>
+  </xacro:duo3d_camera>
+  <!--OVER~modified on Mar 18 by XYB-->
+
+  <!--Include the pressure file to create the pressure sensor-->
+  <xacro:include filename="$(find uuv_sensor_ros_plugins)/urdf/pressure_snippets.xacro"/>
+  <xacro:default_pressure namespace="$(arg namespace)" parent_link="$(arg namespace)/base_link">
+    <origin xyz="0 0 0.5" rpy="0 0 0"/>
+  </xacro:default_pressure>
+  <!--OVER~modified on Mar 22 by XYB-->
+
+  <!-- Turn gravity (off) for now so that the (unpowered) robot doesn't sink like a rock.-->
+  <!--<gazebo reference="$(arg namespace)/dvl_sonar0_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/dvl_sonar1_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/dvl_sonar2_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/dvl_sonar3_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/base_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/dvl_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/camera_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/pressure_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>
+  <gazebo reference="$(arg namespace)/imu_link">
+    <turnGravityOff>true</turnGravityOff>
+  </gazebo>-->
+  <!--OVER~modified on Mar 28 by XYB-->
+
+</robot>

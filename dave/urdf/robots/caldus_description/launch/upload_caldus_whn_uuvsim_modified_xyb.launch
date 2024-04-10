@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="namespace" default="caldus"/>
+  <arg name="debug" default="false"/>
+  <param name="/$(arg namespace)/caldus"
+         command="$(find xacro)/xacro '$(find caldus_description)/urdf/caldus_whn_uuvsim_modified_xyb.xacro' 
+                debug:=$(arg debug)
+                  namespace:=$(arg namespace)
+                  inertial_reference_frame:=world" />
+<!--line 6 has been modified. In the past, it is caldus_whn_uuvsim.xacro-->
+</launch>
+

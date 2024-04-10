@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!--
+    Some examples of sensors that can be added to the vehicle frame.
+    Set the origin of the sensor frames correctly for your application
+    Look into the sensor macros in the package uuv_sensor_ros_plugins/urdf for
+    more examples or add you own custom sensor units.
+  -->
+
+  
+  <!-- Mount a GPS. -->
+  <!--	
+  <xacro:default_gps namespace="${namespace}" parent_link="${namespace}/base_link" />
+  -->
+
+  <!-- Mount a Pose 3D sensor. -->
+  <!--
+  <xacro:default_pose_3d namespace="${namespace}" parent_link="${namespace}/base_link" />
+  -->
+
+  <!-- Forward-looking sonar sensor -->
+  <!--
+  <xacro:forward_multibeam_p900 namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:forward_multibeam_p900>
+  -->
+
+  <!-- DVL  -->
+  <!--
+  <xacro:default_dvl namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_dvl>
+  -->
+
+  <!-- RPT  -->
+  <!--
+  <xacro:default_rpt namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_rpt>
+  -->
+
+  <!-- Pressure  -->
+  <!--
+  <xacro:default_pressure namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_pressure>
+  -->
+
+  <!-- IMU  -->
+  <xacro:default_imu namespace="${namespace}" parent_link="${namespace}/base_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_imu>
+
+  <!-- Generates a tiny "no-collision" cylinder for incorporation into a link
+       that we do not want to collide with anything (e.g., individual DVL sonars) -->
+  <xacro:macro name="no_collision">
+    <collision>
+      <geometry>
+        <cylinder length="${0.000001}" radius="${0.000001}"/>
+      </geometry>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </collision>
+  </xacro:macro>
+
+  <!-- Generates an default IMU model and attaches it to a parent link -->
+  <xacro:macro name="default_imu" params="namespace parent_link *origin">
+    <xacro:default_imu
+      namespace="${namespace}"
+      parent_link="${parent_link}"
+      inertial_reference_frame="world">
+      <xacro:insert_block name="origin"/>
+    </xacro:default_imu>
+  </xacro:macro>
+
+  <!-- Generates the DVL URDF model and plugin -->
+  <xacro:macro name="default_imu" params="namespace parent_link *origin">
+    <xacro:default_imu
+      namespace="${namespace}"
+      parent_link="${parent_link}"
+      inertial_reference_frame="world">
+      <xacro:insert_block name="origin"/>
+    </xacro:default_imu>
+
+    <gazebo>
+      <plugin name="${namespace}_imu_plugin" filename="libgazebo_ros_imu_sensor.so">
+        <robotNamespace>${namespace}</robotNamespace>
+        <alwaysOn>true</alwaysOn>
+        <updateRate>100.0</updateRate>
+        <topicName>imu</topicName>
+        <frameName>base_link</frameName>
+        <bodyName>base_link</bodyName>
+        <gaussianNoise>0.0</gaussianNoise>
+        <xyzOffset>0 0 0</xyzOffset>
+        <rpyOffset>0 0 0</rpyOffset>
+      </plugin>
+    </gazebo>
+  </xacro:macro>
+
+  <!-- Mount a camera  -->
+  <!--
+  <xacro:default_camera namespace="${namespace}" parent_link="${namespace}/base_link" suffix="">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:default_camera>
+  -->
+
+</robot>

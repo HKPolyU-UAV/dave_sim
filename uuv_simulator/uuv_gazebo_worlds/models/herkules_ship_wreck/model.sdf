@@ -35,6 +35,8 @@
           <mesh>
             <uri>model://herkules_ship_wreck/meshes/herkules.dae</uri>
             <scale>1.0 1.0 1.0</scale>
+            <!-- resize the ship to make it smaller -->
+            <!-- <scale>0.1 0.1 0.1</scale> -->
           </mesh>
         </geometry>
       </visual>

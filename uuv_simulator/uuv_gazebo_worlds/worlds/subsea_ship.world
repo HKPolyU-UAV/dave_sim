@@ -53,11 +53,11 @@
     </spherical_coordinates>
 
     <!-- Global light source -->
-    <!--<include>
+    <include>
       <uri>model://sun</uri>
-    </include>-->
+    </include>
 
-    <light type="directional" name="sun_diffuse_1">
+    <!-- <light type="directional" name="sun_diffuse_1">
       <pose>-100 500 -20 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
       <specular>1 1 1 1</specular>
@@ -79,7 +79,7 @@
       <specular>0.2 0.2 0.2 1</specular>
       <direction>0.5 0.5 -1</direction>
       <cast_shadows>true</cast_shadows>
-    </light>
+    </light> -->
 
     <!--<include>
       <uri>model://herkules_seabed</uri>

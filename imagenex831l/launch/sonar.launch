@@ -1,3 +1,0 @@
-<launch>
-  <node pkg="imagenex831l" type="sonar_node.py" name="sonar" respawn="true" respawn_delay="30"/>
-</launch>

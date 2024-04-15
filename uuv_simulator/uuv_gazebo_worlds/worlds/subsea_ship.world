@@ -86,6 +86,15 @@
       <pose>0 0 0 0 0 0</pose>
     </include>-->
 
+    <!-- light source (very dark) -->
+    <!-- <light name="directional" type="sun1">
+      <cast_shadows>false</cast_shadows>
+      <pose>50 0 150 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <direction>0.5 0.5 -1</direction>
+    </light> -->
+
     <include>
       <uri>model://ocean_box</uri>
       <pose>0 0 0 0 0 0</pose>
@@ -94,6 +103,12 @@
     <include>
       <uri>model://herkules_ship_wreck</uri>
       <pose>0 0 -100 0 0 0</pose>
+    </include>
+
+    <!-- Include the coral model. -->
+    <include>
+      <uri>model://coral</uri>
+      <pose> 30 0 -100 0 0 0</pose>
     </include>
 
     <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">

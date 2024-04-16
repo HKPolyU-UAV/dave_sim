@@ -53,10 +53,16 @@
     </spherical_coordinates>
 
     <!-- Global light source -->
-    <include>
+    <!-- <include>
       <uri>model://sun</uri>
-    </include>
-
+    </include> -->
+    <light type="directional" name="sun">
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0 0 -1</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
     <!-- <light type="directional" name="sun_diffuse_1">
       <pose>-100 500 -20 0 0 0</pose>
       <diffuse>0.8 0.8 0.8 1</diffuse>
@@ -105,10 +111,20 @@
       <pose>0 0 -100 0 0 0</pose>
     </include>
 
-    <!-- Include the coral model. -->
-    <include>
-      <uri>model://coral</uri>
+    <!-- Include the coral_cervicornis model. -->
+    <!-- <include>
+      <uri>model://coral_cervicornis</uri>
       <pose> 30 0 -100 0 0 0</pose>
+    </include> -->
+    <include>
+      <uri>model://coral_cervicornis</uri>
+      <pose> 15 0 -100 0 0 0</pose>
+    </include>
+
+    <!-- Include the coral_sarmentosa model. -->  
+    <include>
+      <uri>model://coral_sarmentosa</uri>
+      <pose> 30 15 -100 0 0 0</pose>
     </include>
 
     <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">

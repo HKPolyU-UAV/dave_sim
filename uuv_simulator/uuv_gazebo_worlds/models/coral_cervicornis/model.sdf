@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+    <!-- <model name="acropora_cervicornis1">
+        <static>true</static>
+        <link name="link">
+            <collision name="acropora_cervicornis1">
+                <pose>30 0 -100 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://coral_cervicornis/meshes/acropora_cervicornis.stl</uri>
+                        <scale>0.01 0.01 0.01</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+
+            <visual name="acropora_cervicornis1">
+                <geometry>
+                    <mesh>
+                        <uri>model://coral_cervicornis/meshes/acropora_cervicornis.stl</uri>
+                        <scale>0.01 0.01 0.01</scale>
+                    </mesh>
+                </geometry>
+            </visual>
+        </link>
+    </model> -->
+
+    <model name="acropora_cervicornis2">
+        <static>true</static>
+        <link name="link">
+            <collision name="acropora_cervicornis2">
+                <pose>15 0 -100 0 0 0</pose>
+                <geometry>
+                    <mesh>
+                        <uri>model://coral_cervicornis/meshes/acropora_cervicornis.stl</uri>
+                        <scale>0.01 0.01 0.01</scale>
+                    </mesh>
+                </geometry>
+            </collision>
+
+            <visual name="acropora_cervicornis2">
+                <geometry>
+                    <mesh>
+                        <uri>model://coral_cervicornis/meshes/acropora_cervicornis.stl</uri>
+                        <scale>0.01 0.01 0.01</scale>
+                    </mesh>
+                </geometry>
+                <material>
+                    <ambient>1 0 0 1</ambient>
+                    <diffuse>1 0 0 1</diffuse>
+                    <specular>1 0 0 1</specular>
+                    <emissive>0 0 0 1</emissive>
+                </material>
+            </visual>
+        </link>
+    </model>
+</sdf>

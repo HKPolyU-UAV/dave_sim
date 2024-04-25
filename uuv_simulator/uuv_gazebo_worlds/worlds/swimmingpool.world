@@ -48,7 +48,7 @@
         <visual name="visual">
           <geometry>
             <mesh>
-              <uri>model://pool/pool.dae</uri>
+              <uri>model://pool/pool2.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -56,7 +56,7 @@
         <collision name="collision">
           <geometry>
               <mesh>
-                <uri>model://pool/pool.dae</uri>
+                <uri>model://pool/pool2.dae</uri>
                 <scale>1 1 1</scale>
               </mesh>
           </geometry>
@@ -64,21 +64,91 @@
       </link>
     </model>
 
-    <!-- <include>
-      <uri>model://herkules_ship_wreck</uri>
-      <pose>0 0 -100 0 0 0</pose>
-    </include> -->
+    <!-- Include the AprilTag in the swimming pool -->
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag1</name>
+      <pose>10 20 -97 0 1.5708 0</pose>
+    </include>
 
-    <!-- <include>
-      <uri>model://coral_cervicornis</uri>
-      <pose> 15 0 -100 0 0 0</pose>
-    </include> -->
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>10 -20 -97 0 1.5708 0</pose>
+      <name>ar_tag2</name>
+    </include>
 
-    <!-- Include the coral_sarmentosa model. -->  
-    <!-- <include>
-      <uri>model://coral_sarmentosa</uri>
-      <pose> 30 15 -100 0 0 0</pose>
-    </include> -->
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>5 -20 -97 0 1.5708 0</pose>
+      <name>ar_tag3</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>5 20 -97 0 1.5708 0</pose>
+      <name>ar_tag4</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>0 20 -97 0 1.5708 0</pose>
+      <name>ar_tag5</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>0 -20 -97 0 1.5708 0</pose>
+      <name>ar_tag6</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>-5 -20 -97 0 1.5708 0</pose>
+      <name>ar_tag7</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>-5 20 -97 0 1.5708 0</pose>
+      <name>ar_tag8</name>
+    </include>
+
+    <!-- <model name="light_source1">
+      <plugin name="attach_light_plugin" filename="libattach_light_plugin.so">
+      </plugin>
+    </model> -->
+    <!-- Not work (cannot find parent link bluerov2/base_link) -->
+    <!-- <model name="light_source1">
+      <link name="link">
+        <light name="light_source1" type="spot">
+          <pose frame=''>0.25 0 0.25 0 -0.7854 0</pose>
+          <attenuation>
+            <range>30</range>
+            <linear>0.05</linear>
+          </attenuation>
+          <diffuse>1 0 0 1</diffuse>
+          <specular>1 0 0 1</specular>
+          <spot>
+            <inner_angle>0.3</inner_angle>
+            <outer_angle>0.35</outer_angle>
+            <falloff>1</falloff>
+          </spot>
+          <direction>0 0 -1</direction>
+        </light>
+      </link>
+      <joint name="joint" type="fixed">
+        <parent>bluerov2/base_link</parent>
+        <child>light_source1/link</child>
+      </joint>
+      <plugin name='light_control' filename='libFlashLightPlugin.so'>
+        <enable>true</enable>
+        <light>
+          <id>light_source1/link/light_source1</id>
+          <duration>0.1</duration>
+          <interval>0.4</interval>
+        </light>
+      </plugin>
+    </model> -->
 
     <!-- <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
       <namespace>hydrodynamics</namespace>

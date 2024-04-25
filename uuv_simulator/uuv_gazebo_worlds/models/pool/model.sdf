@@ -35,7 +35,7 @@
         <visual name="visual">
           <geometry>
             <mesh>
-              <uri>model://pool/pool.dae</uri>
+              <uri>model://pool/pool2.dae</uri>
               <scale>1 1 1</scale>
             </mesh>
           </geometry>
@@ -43,7 +43,7 @@
         <collision name="collision">
           <geometry>
               <mesh>
-                <uri>model://pool/pool.dae</uri>
+                <uri>model://pool/pool2.dae</uri>
                 <scale>1 1 1</scale>
               </mesh>
           </geometry>

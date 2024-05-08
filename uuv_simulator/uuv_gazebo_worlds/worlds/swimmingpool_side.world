@@ -1,0 +1,321 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <world name="default">
+    <!-- Origin placed somewhere in the middle of the North Sea  -->
+    <!-- <spherical_coordinates>
+      <latitude_deg>56.71897669633431</latitude_deg>
+      <longitude_deg>3.515625</longitude_deg>
+    </spherical_coordinates> -->
+
+    <!-- Global light source -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <model name="water">
+      <static>true</static>
+      <pose>0 0 -95.98 3.1415 0 3.1415</pose>
+      <link name="link">
+        <visual name="visual">
+          <transparency>0.1</transparency>
+          <cast_shadows>false</cast_shadows>
+          <geometry>
+            <box>
+              <size>26 51 2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.2 0.2 0.9 1</ambient>
+            <diffuse>0.2 0.2 0.9 1</diffuse>
+            <specular>0.1 0.1 0.3 1</specular>
+            <emissive>0 0 0 1</emissive>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>26 51 2</size>
+            </box>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <model name="pool">
+      <pose>0 0 -97 0 0 0</pose>
+      <static>true</static>
+      <link name="ground">
+        <visual name="visual">
+          <geometry>
+            <mesh>
+              <uri>model://pool/pool2.dae</uri>
+              <scale>1 1 1</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name="collision">
+          <geometry>
+              <mesh>
+                <uri>model://pool/pool2.dae</uri>
+                <scale>1 1 1</scale>
+              </mesh>
+          </geometry>
+        </collision>
+      </link>
+    </model>
+
+    <!-- Include the AprilTag in the swimming pool (on the side of the pool) -->
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag1</name>
+      <pose>-13.5 20 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag2</name>
+      <pose>-13.5 18 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag3</name>
+      <pose>-13.5 16 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag4</name>
+      <pose>-13.5 14 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag5</name>
+      <pose>-13.5 12 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag6</name>
+      <pose>-13.5 10 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag7</name>
+      <pose>-13.5 08 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag8</name>
+      <pose>-13.5 06 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag9</name>
+      <pose>-13.5 04 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag10</name>
+      <pose>-13.5 02 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag11</name>
+      <pose>-13.5 00 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag12</name>
+      <pose>-13.5 -02 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag13</name>
+      <pose>-13.5 -04 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag14</name>
+      <pose>-13.5 -06 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag15</name>
+      <pose>-13.5 -08 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag16</name>
+      <pose>-13.5 -10 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag17</name>
+      <pose>-13.5 -12 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag18</name>
+      <pose>-13.5 -14 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag19</name>
+      <pose>-13.5 -16 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag20</name>
+      <pose>-13.5 -18 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag21</name>
+      <pose>-13.5 -20 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag22</name>
+      <pose>13.5 -20 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag23</name>
+      <pose>13.5 18 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag24</name>
+      <pose>13.5 16 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag25</name>
+      <pose>13.5 14 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag26</name>
+      <pose>13.5 12 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag27</name>
+      <pose>13.5 10 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag28</name>
+      <pose>13.5 08 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag29</name>
+      <pose>13.5 06 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag30</name>
+      <pose>13.5 04 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag31</name>
+      <pose>13.5 02 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag32</name>
+      <pose>13.5 00 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag33</name>
+      <pose>13.5 -02 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag34</name>
+      <pose>13.5 -04 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag35</name>
+      <pose>13.5 -06 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag36</name>
+      <pose>13.5 -08 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag37</name>
+      <pose>13.5 -10 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag38</name>
+      <pose>13.5 -12 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag39</name>
+      <pose>13.5 -14 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag40</name>
+      <pose>13.5 -16 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag41</name>
+      <pose>13.5 -18 -95 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <name>ar_tag42</name>
+      <pose>13.5 -20 -95 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>

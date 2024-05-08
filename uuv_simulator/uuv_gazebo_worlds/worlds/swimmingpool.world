@@ -64,7 +64,7 @@
       </link>
     </model>
 
-    <!-- Include the AprilTag in the swimming pool -->
+    <!-- Include the AprilTag in the swimming pool (bottom) -->
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag1</name>

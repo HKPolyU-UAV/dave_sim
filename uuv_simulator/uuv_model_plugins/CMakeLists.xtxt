@@ -1,0 +1,44 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(uuv_model_plugins)
+
+## Find catkin macros and libraries
+find_package(catkin REQUIRED COMPONENTS
+  roscpp
+  rospy
+  std_msgs
+)
+
+## System dependencies are found with CMake's conventions
+find_package(Boost REQUIRED COMPONENTS system)
+
+## Uncomment this if the package has a setup.py
+# catkin_python_setup()
+
+## Specify additional locations of header files
+include_directories(
+  ${catkin_INCLUDE_DIRS}
+)
+
+## Declare a C++ library
+add_library(${PROJECT_NAME} src/attach_light_plugin.cpp)
+
+## Specify libraries to link a library or executable target against
+target_link_libraries(attach_light_plugin ${GAZEBO_LIBRARIES}
+  ${catkin_LIBRARIES}
+)
+
+catkin_package(
+  INCLUDE_DIRS include
+  LIBRARIES ${PROJECT_NAME}
+  CATKIN_DEPENDS roscpp rospy std_msgs
+  DEPENDS system_lib
+)
+
+## Build nodes
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+add_executable(node1 src/node1.cpp)
+target_link_libraries(node1 ${catkin_LIBRARIES})
+
+add_executable(node2 src/node2.cpp)
+target_link_libraries(node2 ${catkin_LIBRARIES})

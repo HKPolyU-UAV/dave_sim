@@ -68,254 +68,102 @@
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag1</name>
-      <pose>-13.5 20 -95 0 0 0</pose>
+      <pose>-13.5 17.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag2</name>
-      <pose>-13.5 18 -95 0 0 0</pose>
+      <pose>-13.5 7.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag3</name>
-      <pose>-13.5 16 -95 0 0 0</pose>
+      <pose>-13.5 -2.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag4</name>
-      <pose>-13.5 14 -95 0 0 0</pose>
+      <pose>-13.5 -12.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag5</name>
-      <pose>-13.5 12 -95 0 0 0</pose>
+      <pose>0 25.5 -96 0 0 1.5708</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag6</name>
-      <pose>-13.5 10 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag7</name>
-      <pose>-13.5 08 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag8</name>
-      <pose>-13.5 06 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag9</name>
-      <pose>-13.5 04 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag10</name>
-      <pose>-13.5 02 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag11</name>
-      <pose>-13.5 00 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag12</name>
-      <pose>-13.5 -02 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag13</name>
-      <pose>-13.5 -04 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag14</name>
-      <pose>-13.5 -06 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag15</name>
-      <pose>-13.5 -08 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag16</name>
-      <pose>-13.5 -10 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag17</name>
-      <pose>-13.5 -12 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag18</name>
-      <pose>-13.5 -14 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag19</name>
-      <pose>-13.5 -16 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag20</name>
-      <pose>-13.5 -18 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag21</name>
-      <pose>-13.5 -20 -95 0 0 0</pose>
+      <pose>0 -25.5 -96 0 0 1.5708</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag22</name>
-      <pose>13.5 -20 -95 0 0 0</pose>
+      <pose>13.5 12.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag23</name>
-      <pose>13.5 18 -95 0 0 0</pose>
+      <pose>13.5 2.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag24</name>
-      <pose>13.5 16 -95 0 0 0</pose>
+      <pose>13.5 -7.5 -95 0 0 0</pose>
     </include>
 
     <include>
       <uri>model://ar_tag</uri>
       <name>ar_tag25</name>
-      <pose>13.5 14 -95 0 0 0</pose>
+      <pose>13.5 -17.5 -95 0 0 0</pose>
     </include>
 
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag26</name>
-      <pose>13.5 12 -95 0 0 0</pose>
-    </include>
+    <plugin name="underwater_current_plugin" filename="libuuv_underwater_current_ros_plugin.so">
+      <namespace>hydrodynamics</namespace>
+      <constant_current>
+        <topic>current_velocity</topic>
+        <velocity>
+          <mean>0</mean>
+          <min>0</min>
+          <max>5</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </velocity>
 
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag27</name>
-      <pose>13.5 10 -95 0 0 0</pose>
-    </include>
+        <horizontal_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </horizontal_angle>
 
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag28</name>
-      <pose>13.5 08 -95 0 0 0</pose>
-    </include>
+        <vertical_angle>
+          <mean>0</mean>
+          <min>-3.141592653589793238</min>
+          <max>3.141592653589793238</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.0</noiseAmp>
+        </vertical_angle>
+      </constant_current>
+    </plugin>
 
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag29</name>
-      <pose>13.5 06 -95 0 0 0</pose>
-    </include>
+    <plugin name="sc_interface" filename="libuuv_sc_ros_interface_plugin.so"/>
 
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag30</name>
-      <pose>13.5 04 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag31</name>
-      <pose>13.5 02 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag32</name>
-      <pose>13.5 00 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag33</name>
-      <pose>13.5 -02 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag34</name>
-      <pose>13.5 -04 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag35</name>
-      <pose>13.5 -06 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag36</name>
-      <pose>13.5 -08 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag37</name>
-      <pose>13.5 -10 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag38</name>
-      <pose>13.5 -12 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag39</name>
-      <pose>13.5 -14 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag40</name>
-      <pose>13.5 -16 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag41</name>
-      <pose>13.5 -18 -95 0 0 0</pose>
-    </include>
-
-    <include>
-      <uri>model://ar_tag</uri>
-      <name>ar_tag42</name>
-      <pose>13.5 -20 -95 0 0 0</pose>
-    </include>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>-25 25 -55 0 0 -0.8</pose>
+        <view_controller>orbit</view_controller>
+        <projection_type>perspective</projection_type>
+      </camera>
+    </gui> 
 
   </world>
 </sdf>

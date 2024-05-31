@@ -36,14 +36,13 @@
         </clouds>
       </sky>
       <shadows>0</shadows>
-      <!-- <fog>
+      <fog>
         <color>0.1 0.2 0.3 1.0</color>
         <type>linear</type>
         <density>0.1</density>
-        <density>0.001</density>
         <start>10</start>
         <end>40</end>
-      </fog> -->
+      </fog>
     </scene>
 
     <!-- Origin placed somewhere in the middle of the North Sea  -->

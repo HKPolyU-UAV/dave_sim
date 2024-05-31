@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Macro for adding a point light to the URDF -->
+  <xacro:macro name="point_light" params="namespace parent_link">
+    <link name="${namespace}/point_light_link">
+      <inertial>
+        <mass value="0.01"/>
+        <inertia ixx="0" ixy="0.0" ixz="0.0" iyy="0" iyz="0.0" izz="0" />
+      </inertial>
+      <visual>
+        <geometry>
+          <sphere radius="0.05"/>
+        </geometry>
+        <material name="light_material">
+          <color rgba="1 1 1 1"/>
+        </material>
+      </visual>
+      <collision>
+        <geometry>
+          <sphere radius="0.05"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <joint name="${namespace}/point_light_joint" type="fixed">
+      <parent link="${parent_link}" />
+      <child link="${namespace}/point_light_link" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <!-- <gazebo reference="${namespace}/point_light_link">
+      <sensor name="point_light_sensor" type="point_light">
+        <cast_shadows>true</cast_shadows>
+        <attenuation>
+          <range>10</range>
+          <constant>0.5</constant>
+          <linear>0.01</linear>
+          <quadratic>0.001</quadratic>
+        </attenuation>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>1 1 1 1</specular>
+      </sensor>
+    </gazebo> -->
+    <gazebo>
+      <light name="point_light" type="point">
+        <pose>0 0 0 0 0 0</pose>
+        <diffuse>1 1 1 1</diffuse>
+        <specular>0.1 0.1 0.1 1</specular>
+        <attenuation>
+          <range>20</range>
+          <constant>0.5</constant>
+          <linear>0.01</linear>
+          <quadratic>0.001</quadratic>
+        </attenuation>
+        <cast_shadows>true</cast_shadows>
+      </light>
+    </gazebo>
+  </xacro:macro>
+</robot>
+

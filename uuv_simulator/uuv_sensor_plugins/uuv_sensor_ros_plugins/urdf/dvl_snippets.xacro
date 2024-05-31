@@ -45,7 +45,7 @@
     <xacro:default_dvl_macro
       namespace="${namespace}"
       parent_link="${parent_link}"
-      reference_frame="world">
+      reference_frame="world">        <!-- deleted reference_frame="world" -->
       <xacro:insert_block name="origin" />
     </xacro:default_dvl_macro>
   </xacro:macro>

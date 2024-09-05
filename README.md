@@ -1,4 +1,4 @@
-# UUV simulator
+# Underwater simulation
 
 Developed based on DAVE
 

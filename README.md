@@ -18,8 +18,8 @@ Developed based on DAVE
 The Semi-physical dataset collected in a swimming pool (Length 50 m x Width 25 m, Depth 1 m) can be avaible by https://drive.google.com/file/d/1Aa0WR3RiYMOI9ouY_rHTWtJH9byqR_ph/view?usp=drive_link.
 
 ## rosbag info
-/bluerov2/camera_front/camera_image: Images collected by the monocular camera outfitted with the BlueROV2 robot. 
-/bluerov2/dvl: Velocity collected by the DVL. 
-/bluerov2/imu: Linear acceleration and angular velocity of the BlueROV2 robot. 
-/bluerov2/sonar: Include the range between the sonar and the obstacle. 
-/bluerov2/pressure: Water pressure collected by the pressure sensor which provides the measurement of water-depth.
+ - /bluerov2/camera_front/camera_image: Images collected by the monocular camera outfitted with the BlueROV2 robot. 
+ - /bluerov2/dvl: Velocity collected by the DVL. 
+ - /bluerov2/imu: Linear acceleration and angular velocity of the BlueROV2 robot. 
+ - /bluerov2/sonar: Include the range between the sonar and the obstacle. 
+ - /bluerov2/pressure: Water pressure collected by the pressure sensor which provides the measurement of water-depth.

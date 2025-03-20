@@ -113,6 +113,26 @@
       <name>ar_tag8</name>
     </include>
 
+    <!-- Include the AprilTag in the swimming pool (side) -->
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>10 -26.5 -95 0 0 1.5708</pose>
+      <name>ar_tag9</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>5 26.5 -95 0 0 1.5708</pose>
+      <name>ar_tag10</name>
+    </include>
+
+    <include>
+      <uri>model://ar_tag</uri>
+      <pose>-14 -20 -95 0 0 0</pose>
+      <name>ar_tag11</name>
+    </include>
+
+
     <!-- <model name="light_source1">
       <plugin name="attach_light_plugin" filename="libattach_light_plugin.so">
       </plugin>

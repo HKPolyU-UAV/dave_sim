@@ -50,6 +50,31 @@
     </xacro:imu_plugin_macro>
   </xacro:macro>
 
+  <xacro:macro name="default_imu_svin" params="namespace parent_link *origin">
+    <!-- 3DM-GX4-15 IMU. (same with SVIN2) -->
+    <xacro:imu_plugin_macro
+      namespace="${namespace}"
+      imu_suffix=""
+      parent_link="${parent_link}"
+      imu_topic="imu"
+      mass_imu_sensor="0.015" 
+      gyroscope_noise_density="0.0000872665"
+      gyroscope_random_walk="0.000038785"
+      gyroscope_bias_correlation_time="1000.0"
+      gyroscope_turn_on_bias_sigma="0.0087"
+      accelerometer_noise_density="0.000980665"
+      accelerometer_random_walk="0.006"
+      accelerometer_bias_correlation_time="300.0"
+      accelerometer_turn_on_bias_sigma="0.1960"
+      orientation_noise="0.01"
+      enable_local_ned_frame="false"
+      reference_frame="world"
+      update_rate="500">
+      <inertia ixx="0.00001" ixy="0.0" ixz="0.0" iyy="0.00001" iyz="0.0" izz="0.00001" />
+      <xacro:insert_block name="origin" />
+    </xacro:imu_plugin_macro>
+  </xacro:macro>
+
   <xacro:macro name="default_imu_macro" params="namespace parent_link *origin inertial_reference_frame">
     <!-- ADIS16448 IMU. -->
     <xacro:if value="${inertial_reference_frame == 'world'}">

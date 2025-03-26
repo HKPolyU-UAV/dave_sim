@@ -130,7 +130,7 @@
       <namespace>hydrodynamics</namespace>
       <constant_current>
         <topic>current_velocity</topic>
-        <velocity>
+        <!-- <velocity>
           <mean>0</mean>
           <min>0</min>
           <max>5</max>
@@ -152,7 +152,32 @@
           <max>3.141592653589793238</max>
           <mu>0.0</mu>
           <noiseAmp>0.0</noiseAmp>
+        </vertical_angle> -->
+
+        <velocity>
+          <mean>0.3</mean>
+          <min>0.2</min>
+          <max>0.4</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.05</noiseAmp>
+        </velocity>
+
+        <horizontal_angle>
+          <mean>0.2616</mean>
+          <min>0.</min>
+          <max>0.5236</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.1</noiseAmp>
+        </horizontal_angle>
+
+        <vertical_angle>
+          <mean>0</mean>
+          <min>-0.1</min>
+          <max>0.3</max>
+          <mu>0.0</mu>
+          <noiseAmp>0.05</noiseAmp>
         </vertical_angle>
+
       </constant_current>
     </plugin>
 

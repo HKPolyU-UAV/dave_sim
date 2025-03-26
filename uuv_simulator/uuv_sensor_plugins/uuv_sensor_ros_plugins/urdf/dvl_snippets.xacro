@@ -66,13 +66,26 @@
       suffix=""
       parent_link="${parent_link}"
       reference_frame="world"
-      update_rate="7"
+      update_rate="9"
+      topic="dvl"
+      noise_sigma="0.5"
+      noise_amplitude="0.1"
+      scale="1">
+      <xacro:insert_block name="origin" />
+    </xacro:dvl_plugin_macro>
+    
+    <!-- <xacro:dvl_plugin_macro
+      namespace="${namespace}"
+      suffix=""
+      parent_link="${parent_link}"
+      reference_frame="world"
+      update_rate="9"
       topic="dvl"
       noise_sigma="0"
       noise_amplitude="0"
       scale="1">
       <xacro:insert_block name="origin" />
-    </xacro:dvl_plugin_macro>
+    </xacro:dvl_plugin_macro> -->
   </xacro:macro>
 
   <xacro:macro name="dvl_single_sonar" params="namespace suffix index pitch yaw update_rate">
